@@ -6,6 +6,7 @@ import (
 	"net/http"
 
 	"github.com/go-kit/kit/endpoint"
+	"github.com/google/uuid"
 )
 
 type quotaResponse struct {
@@ -13,7 +14,7 @@ type quotaResponse struct {
 }
 
 type quotaRequest struct {
-	ClientID string `json:"clientId"`
+	ClientID uuid.UUID `json:"clientId"`
 }
 
 func makeQuotaEndpoint(svc QuotaService) endpoint.Endpoint {

@@ -1,12 +1,19 @@
 package main
 
+import (
+	"fmt"
+
+	"github.com/google/uuid"
+)
+
 type QuotaService interface {
-	Count(string) (int, error)
+	Count(uuid.UUID) (int, error)
 }
 
 type quotaService struct{}
 
-func (quotaService) Count(string) (int, error) {
+func (quotaService) Count(id uuid.UUID) (int, error) {
+	fmt.Println(id)
 	return 0, nil
 }
 
